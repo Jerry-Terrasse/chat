@@ -25,9 +25,10 @@
 			});
 		
 		}else if(par.pathname === '/submit'){
-            fs.appendFile('./log.txt','<p>' + par.query + '</p>\n', (error)  => {
+            text = decodeURI(par.query)
+            fs.appendFile('./log.txt','<p>' + text + '</p>\n', (error)  => {
                 if (error) return console.log("Fail: " + error.message);
-                console.log("Received: " + par.query);
+                console.log("Received: " + text);
             });
             response.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
 			fs.readFile('./notFount.html','utf-8',function(err,data){
