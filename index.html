@@ -20,13 +20,9 @@
         }
         function send() {
             var content = document.getElementById('ipt').value;
-            post('/submit', {text: content});
+            post('/submit?' + content, {text: content});
             return;
         }
     </script>
     </head>
     <body>
-        <input id='ipt' type='text' name='abc'>
-        <button onclick='send()'></button>
-    </body>
-</html>
