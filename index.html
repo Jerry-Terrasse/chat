@@ -1,31 +1,20 @@
 <!doctype html>
 <html>
     <head>
-    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
-    <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
-    <script>
-        function post(URL, PARAMS) {
-            var temp = document.createElement("form");
-            temp.action = URL;
-            temp.method = "post";
-            temp.style.display = "none";
-            for (var x in PARAMS) {
-                var opt = document.createElement("textarea");
-                opt.name = x;
-                opt.value = PARAMS[x];
-                // alert(opt.name)
-                temp.appendChild(opt);
-            }
-            document.body.appendChild(temp);
-            temp.submit();
-            return temp;
+    <link rel="stylesheet" href="/css/mdui.min.css">
+    <style>
+        .mdui-card{
+            margin-top: 1rem;
+            word-wrap:break-word;
         }
-        function send() {
-            var content = document.getElementById('ipt').value;
-            post('/submit?' + content, {text: content});
-            return;
-        }
-        //setInterval('window.location.reload()',5000);
-    </script>
+    </style>
+    <script src="/js/mdui.min.js"></script>
     </head>
     <body>
+        <div class="mdui-container">
+            <div id='workspace' class="mdui-col-offset-xs-6" style="position:fixed;bottom:0;">
+                <input id='ipt' type='text' name='abc' onkeydown="keyd(event);">
+                <button id='send' class='mdui-btn mdui-color-theme-accent mdui-ripple' onclick='send()'>SEND</button>
+            </div>
+        </div>
+        <div class="mdui-container">
